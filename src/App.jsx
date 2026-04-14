@@ -1,5 +1,6 @@
 import React from 'react'
 import LightRays from './components/Hero'
+import CardSwap, { Card } from './components/ui/CardSwap'
 import './index.css'
 
 
@@ -23,6 +24,28 @@ function App() {
           saturation={1}
         />
       </div>
+
+      {/* <div style={{ height: '600px', position: 'relative' }}>
+        <CardSwap
+          cardDistance={50}
+          verticalDistance={70}
+          delay={5000}
+          pauseOnHover={false}
+        >
+          <Card>
+            <h3>Card 1</h3>
+            <p>Your content here</p>
+          </Card>
+          <Card>
+            <h3>Card 2</h3>
+            <p>Your content here</p>
+          </Card>
+          <Card>
+            <h3>Card 3</h3>
+            <p>Your content here</p>
+          </Card>
+        </CardSwap>
+      </div> */}
     </>
   )
 }
