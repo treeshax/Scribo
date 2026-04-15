@@ -1,6 +1,7 @@
 import React from 'react'
 import LightRays from './components/Hero'
 import Navbar from './components/ui/Navbar'
+import SpotlightCard from './components/ui/CardProps'
 import './index.css'
 
 function App() {
@@ -36,6 +37,32 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Features Section */}
+      <div className="features-header">
+        <span className="features-eyebrow">Why Scribo?</span>
+        <h2 className="features-heading">Everything you need.<br />Nothing you don't.</h2>
+        <p className="features-subtext">A workspace that adapts to how you think — not the other way around.</p>
+      </div>
+      <section className="features-section">
+        <SpotlightCard spotlightColor="rgba(0, 229, 255, 0.2)" className="feature-card">
+          <div className="feature-icon">✍️</div>
+          <h3 className="feature-title">Write Anything</h3>
+          <p className="feature-desc">From quick notes to full docs — a flexible editor that gets out of your way.</p>
+        </SpotlightCard>
+
+        <SpotlightCard spotlightColor="rgba(120, 80, 255, 0.25)" className="feature-card">
+          <div className="feature-icon">🗂️</div>
+          <h3 className="feature-title">Organize Effortlessly</h3>
+          <p className="feature-desc">Nested pages, databases, and tags keep every idea exactly where you expect it.</p>
+        </SpotlightCard>
+
+        <SpotlightCard spotlightColor="rgba(255, 100, 150, 0.2)" className="feature-card">
+          <div className="feature-icon">⚡</div>
+          <h3 className="feature-title">Move at the Speed of Thought</h3>
+          <p className="feature-desc">Slash commands, keyboard shortcuts, and instant search keep you in flow.</p>
+        </SpotlightCard>
+      </section>
     </>
   )
 }
