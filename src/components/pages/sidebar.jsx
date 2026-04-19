@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Sidebar({ pages, setPages, setCurrentPage, currentPage }) {
 
   const addPage = () => {
@@ -14,7 +16,10 @@ function Sidebar({ pages, setPages, setCurrentPage, currentPage }) {
 
   return (
     <div className="sidebar">
-      <h2 className="workspace-title">Workspace</h2>
+      <div className="sidebar-header">
+        <Link to="/" className="home-link">← Home</Link>
+        <h2 className="workspace-title">Workspace</h2>
+      </div>
 
       <button className="new-page-btn" onClick={addPage}>
         + New Page

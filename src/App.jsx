@@ -5,6 +5,7 @@ import SpotlightCard from './components/ui/CardProps'
 import GlareHover from './components/ui/GlareHover'
 import Comparison from './components/ui/Comparison'
 import Footer from './components/ui/Footer'
+import UseCases from './components/ui/UseCases'
 import './index.css'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import Login from './components/pages/login' 
@@ -45,7 +46,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Features Section */}
       <div className="features-header">
         <span className="features-eyebrow">Why Scribo?</span>
         <h2 className="features-heading">Everything you need.<br />Nothing you don't.</h2>
@@ -78,10 +78,10 @@ function Home() {
         </GlareHover>
       </section>
 
-      {/* Comparison Section */}
+      {/* <UseCases /> */}
+
       <Comparison />
 
-      {/* Footer Section */}
       <Footer />
     </>
   )
@@ -91,7 +91,6 @@ function App() {
   const location = useLocation()
   return (
     <>
-      {/* {location.pathname !== "/login" && <Navbar />} */}
       {location.pathname === "/" && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
