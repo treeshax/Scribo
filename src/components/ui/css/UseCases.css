@@ -1,0 +1,104 @@
+.usecases-section {
+  padding: 8rem 2rem;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+.usecases-container {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.usecases-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.usecases-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+.usecases-heading {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 850;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  background: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.usecase-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: none; /* Removed static border */
+  border-radius: 24px;
+  padding: 2.5rem;
+  overflow: visible; /* Changed from hidden to show glow */
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.usecase-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-8px);
+}
+
+.usecase-glow-wrapper {
+  overflow: visible !important;
+}
+
+.usecase-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: var(--accent-color);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.5s ease;
+}
+
+.usecase-card:hover .usecase-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.usecase-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.usecase-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .usecases-section {
+    padding: 4rem 1.5rem;
+  }
+}
