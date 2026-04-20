@@ -105,6 +105,31 @@ body {
   }
 }
 
+.home-bot-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  z-index: 5;
+  pointer-events: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.home-bot-container:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .home-bot-container {
+    width: 250px;
+    height: 250px;
+    bottom: -20px;
+    right: -20px;
+  }
+}
+
 /* ── Features Header ──────────────────────────────────────────────────── */
 .features-header {
   text-align: center;

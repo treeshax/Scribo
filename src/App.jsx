@@ -12,11 +12,13 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import Login from './components/pages/login' 
 import Dashboard from './components/Dashboard'
 import ScriboAI from './components/ScriboAI'
+import HomePageBot from './components/ui/HomePageBot'
 
 function Home() {
-  return (
+    return (
     <>
       <div className="hero-section">
+        <HomePageBot />
         <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
           <LineWaves
             speed={0.3}
