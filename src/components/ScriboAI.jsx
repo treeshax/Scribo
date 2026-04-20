@@ -1,6 +1,7 @@
 import Spline from '@splinetool/react-spline';
 import Navbar from './ui/Navbar';
 import './ScriboAI.css';
+import { Navigate } from 'react-router-dom';
 
 // We used Spline here for this 3D AI animation
 export default function ScriboAI() {
@@ -12,7 +13,7 @@ export default function ScriboAI() {
       />
       
       <div className="ai-content">
-        <button className="get-started-btn">
+        <button className="get-started-btn" onClick={() => Navigate('/')}>
           Get Started
         </button>
       </div>
