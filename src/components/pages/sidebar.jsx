@@ -3,18 +3,10 @@ import { Link } from 'react-router-dom';
 import './sidebar.css'
 import Logo from '../../../scribo_logo.png'
 
-function Sidebar({ pages, setPages, setCurrentPage, currentPage }) {
+function Sidebar({ pages, setPages, setCurrentPageId, currentPageId }) {
   const [workspaceName, setWorkspaceName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const handleWorkspaceName = (e) => {
-    e.preventDefault();
-    const name = e.target.elements.workspaceName.value;
-    if (name.trim()) {
-      setWorkspaceName(name);
-      setIsSubmitted(true);
-    }
-  }
-
+  
   const addPage = () => {
     const newPage = {
       id: Date.now(),
@@ -22,60 +14,49 @@ function Sidebar({ pages, setPages, setCurrentPage, currentPage }) {
       content: [""] 
     };
 
-    const updatedPages = [...pages, newPage];
-    setPages(updatedPages);
-    setCurrentPage(newPage); 
+    setPages(prev => [...prev, newPage]);
+    setCurrentPageId(newPage.id); 
   };
 
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <Link to="/" className="home-link">← Home</Link>
-        <div className="workspace-section">
-          {isSubmitted ? (
-            <div className="sidebar-brand">
-              <img src={Logo} alt="Scribo" className="sidebar-logo" />
-              <h2 className="workspace-title clickable" onClick={() => setIsSubmitted(false)}>
-                {workspaceName}
-              </h2>
-            </div>
-          ) : (
-            <form onSubmit={handleWorkspaceName} className="workspace-form">
-              <input 
-                type="text" 
-                placeholder='Name your workspace' 
-                name='workspaceName' 
-                autoFocus
-                className="workspace-input"
-                defaultValue={workspaceName}
-              />
-            </form>
-          )}
+        <div className="sidebar-brand">
+          <img src={Logo} alt="Scribo" className="sidebar-logo" />
+          <h2 className="workspace-title">My Workspace</h2>
         </div>
       </div>
 
-      {isSubmitted && (
-        <>
-          <button className="new-page-btn" onClick={addPage}>
-            + New Page
-          </button>
+      <div className="sidebar-navigation">
+        <Link to="/" className="sidebar-item">
+          🏠 Home
+        </Link>
+        <Link to="/scriboai" className="sidebar-item">
+          ✨ ScriboAI
+        </Link>
+      </div>
 
-          <div className="pages-list">
-            {pages.map((page) => (
-              <div 
-                key={page.id}
-                className={`page-item ${
-                  currentPage?.id === page.id ? "active" : ""
-                }`}
-                onClick={() => setCurrentPage(page)}
-              >
-                <span className="page-icon">📄</span>
-                {page.title || "Untitled"}
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+      <div className="workspace-notes-section">
+        <div className="section-header">
+          <span>Private Notes</span>
+          <button className="add-note-inline" onClick={addPage}>+</button>
+        </div>
+        
+        <div className="pages-list">
+          {pages.map((page) => (
+            <div 
+              key={page.id}
+              className={`page-item ${
+                currentPageId === page.id ? "active" : ""
+              }`}
+              onClick={() => setCurrentPageId(page.id)}
+            >
+              <span className="page-icon">📄</span>
+              <span className="page-title-text">{page.title || "Untitled"}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
