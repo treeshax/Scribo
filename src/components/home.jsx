@@ -1,4 +1,4 @@
-import Card from "../components/Card"; // ✅ fix path
+import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
 
 function Home({ pages, setPages, setCurrentPage }) {
@@ -20,8 +20,6 @@ function Home({ pages, setPages, setCurrentPage }) {
 
     setPages([...pages, newPage]);
     setCurrentPage(newPage);
-
-    // ✅ Redirect to dashboard
     navigate("/dashboard");
   };
 
@@ -29,7 +27,6 @@ function Home({ pages, setPages, setCurrentPage }) {
     <div className="home">
       <h1>{getGreeting()}, Harshita 👋</h1>
 
-      {/* ✅ Use Card instead of custom div */}
       <div className="card-container">
         <Card 
           title="+ New Page" 
