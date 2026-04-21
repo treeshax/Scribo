@@ -9,13 +9,11 @@
   flex-direction: column;
   overflow: hidden;
 }
-
-/* Visual Layers */
 .spline-bg-wrapper {
   position: absolute;
   inset: 0;
   z-index: 1;
-  pointer-events: auto; /* Changed to allow mouse interaction with the 3D scene */
+  pointer-events: auto; 
 }
 
 .grid-overlay {
@@ -24,7 +22,7 @@
   background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: 2;
-  pointer-events: none; /* Allow mouse to pass through to Spline */
+  pointer-events: none;
 }
 
 .minimal-nav {
