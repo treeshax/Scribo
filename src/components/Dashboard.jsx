@@ -4,7 +4,6 @@ import Editor from './pages/editor'
 import './Dashboard.css'
 
 function Dashboard() {
-  // ✅ Load initial pages from localStorage or use default
   const [pages, setPages] = useState(() => {
     const saved = localStorage.getItem('scribo_pages');
     if (saved) {
@@ -17,16 +16,12 @@ function Dashboard() {
     return [{ id: 1, title: 'Untitled', content: [''] }];
   });
 
-  // ✅ Initialize current page ID
   const [currentPageId, setCurrentPageId] = useState(() => {
     const savedLastPageId = localStorage.getItem('scribo_last_page_id');
     return savedLastPageId ? parseInt(savedLastPageId) : pages[0].id;
   });
 
-  // ✅ Get the live page object from the pages array
   const currentPage = pages.find(p => p.id === currentPageId) || pages[0];
-
-  // ✅ Save to localStorage whenever state changes
   useEffect(() => {
     localStorage.setItem('scribo_pages', JSON.stringify(pages));
   }, [pages]);
