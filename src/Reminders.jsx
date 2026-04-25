@@ -1,14 +1,14 @@
-import { useNavigate } from 'react-router-dom'
-import React from 'react'
-import './components/ui/css/reminders.css'
-import { BackgroundRippleEffect } from './components/ui/background-ripple-effect'
+import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import './components/ui/css/reminders.css';
+import { BackgroundRippleEffect } from './components/ui/background-ripple-effect';
 import Shuffle from './components/ui/Shuffle.jsx';
 
 function Reminders() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="title-style relative overflow-hidden flex flex-col items-center justify-center">
-      <div className="z-10">
+      <div className="z-10 flex flex-col items-center gap-3">
         <Shuffle
           text="Reminders"
           shuffleDirection="right"
@@ -24,13 +24,18 @@ function Reminders() {
           loop={false}
           loopDelay={0}
         />
-        <p className="text-zinc-400">Stay on top of your tasks</p>
-        <button onClick={()=>{navigate("/todo")}} className="pointer-events-auto mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors duration-300">Get Start</button>
+        <p className="text-zinc-400 text-[20px]">Stay on top of your tasks</p>
+        <button 
+          className="btn-primary cursor-pointer" 
+          onClick={() => navigate('/todo')}
+        >
+          Get Started
+        </button>
       </div>
-      
+
       <BackgroundRippleEffect rows={50} cols={60} />
     </div>
-  )
+  );
 }
 
-export default Reminders
+export default Reminders;
